@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+qimport greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Tank here.
@@ -8,9 +8,40 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tank extends Actor
 {
-    public void act() 
+    int level = 1;
+    String facing = "right";
+    GreenfootImage [] images = new GreenfootImage[8];
+    GreenfootImage [] imagesLeft = new GreenfootImage[8];
+    
+    public Tank()
     {
         
-        // Add your action code here.
-    }    
+        GreenfootImage image = new GreenfootImage("images/tank1.png");
+        image.scale(75, 75);
+        setImage(image);
+    }
+    public void act() {
+        
+        if (Greenfoot.isKeyDown("a")) {
+            turn(-2);
+        }
+        if (Greenfoot.isKeyDown("d")) {
+            turn(2);
+        }
+        if (Greenfoot.isKeyDown("s")) {
+            move(-3);
+        }
+        if (Greenfoot.isKeyDown("w")) {
+            move(3);
+        }
+        if (Greenfoot.isKeyDown("space"))
+        {
+           shoot();
+        }
+    }
+    public void shoot()
+    {
+        Tank tank = new Tank();
+
+    }
 }

@@ -1,12 +1,13 @@
 #Greenfoot project file
+class.MyWorld.image=graybg.jpg
 class.Tank.image=tank1.png
 dependency1.from=MyWorld
 dependency1.to=Tank
 dependency1.type=UsesDependency
-editor.fx.0.height=739
-editor.fx.0.width=875
-editor.fx.0.x=287
-editor.fx.0.y=83
+editor.fx.0.height=1056
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-8
 height=1056
 package.numDependencies=1
 package.numTargets=2
