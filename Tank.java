@@ -1,4 +1,4 @@
-qimport greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Tank here.
@@ -41,7 +41,8 @@ public class Tank extends Actor
     }
     public void shoot()
     {
-        Tank tank = new Tank();
+        
+
 
     }
 }
