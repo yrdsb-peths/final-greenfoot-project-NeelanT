@@ -63,8 +63,14 @@
     }
     public void shoot()
     {
-        Bullet bullet = new Bullet(rotation);
+        
         MyWorld world = (MyWorld) getWorld();
-        world.addObject(bullet, getX(), getY());  
+        if(world.numberOfObjects() < 5)
+        {
+            Bullet bullet = new Bullet(rotation);
+            world.addObject(bullet, getX(), getY()); 
+        }
+       
+         
     }
 }

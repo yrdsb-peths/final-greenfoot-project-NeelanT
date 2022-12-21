@@ -19,5 +19,11 @@ public class Bullet extends Actor
     public void act() 
     {
         move(10);
+        MyWorld world = (MyWorld) getWorld();
+        if(getX() >= world.getWidth() - 1 || getX() <= 1 || getY() >= world.getHeight() - 1 || getY() <= 1)
+        {
+            turn(180);
+             
+        }
     }    
 }
