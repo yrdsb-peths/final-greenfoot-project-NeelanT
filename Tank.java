@@ -1,63 +1,70 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Tank here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Tank extends Actor
-{
-    int level = 1;
-    int rotation = getRotation();
-    String facing = "right";
-    GreenfootImage [] images = new GreenfootImage[3];
+    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
-    
-    public Tank()
+    public class Tank extends Actor
     {
-        for(int i = 0; i < images.length; i++)
+        SimpleTimer timer = new SimpleTimer();
+        int level = 1;
+        int rotation = getRotation();
+        String facing = "right";
+        GreenfootImage [] images = new GreenfootImage[3];
+        
+        
+        public Tank()
         {
-            images[i] = new GreenfootImage("images/tank" + i + ".png");
-            images[i].scale(100, 80);
+            for(int i = 0; i < images.length; i++)
+            {
+                images[i] = new GreenfootImage("images/tank" + i + ".png");
+                images[i].scale(100, 80);
+            }
+            setImage(images[0]);
+            timer.mark();
         }
-        setImage(images[0]);
-    }
-    public void act() {
-       
-        if (Greenfoot.isKeyDown("a")) {
-            turn(-2);
-            rotation = getRotation();
-        }
-        if (Greenfoot.isKeyDown("d")) {
-            turn(2);
-            rotation = getRotation();
-        }
-        if (Greenfoot.isKeyDown("s")) {
-            move(-3);
-        }
-        if (Greenfoot.isKeyDown("w")) {
-            move(3);
+        public void act() {
+           
+            if (Greenfoot.isKeyDown("a")) {
+                turn(-3);
+                rotation = getRotation();
+            }
+            if (Greenfoot.isKeyDown("d")) {
+                turn(3);
+                rotation = getRotation();
+            }
+            if (Greenfoot.isKeyDown("s")) {
+                move(-5);
+            }
+            if (Greenfoot.isKeyDown("w")) {
+                move(5);
+                
+            }
+            if (Greenfoot.isKeyDown("space"))
+            {
+                shoot();
+            }
             animate();
         }
-        if (Greenfoot.isKeyDown("space"))
-        {
-           shoot();
-        }
-    }
-    int i = 0;
+        int i = 0;
     public void animate()
     {
-        setImage(images[(i  % 2) + 1]);
-        i++;
-    }
-    public void shoot()
-    {
-        Bullet bullet = new Bullet();
-        MyWorld world = (MyWorld) getWorld();
-        world.addObject(bullet, getX(), getY());
+        if(Greenfoot.isKeyDown("w")) {
+            if(timer.millisElapsed() >= 40)
+            {
+                setImage(images[(i  % 2) + 1]);
+                i++;
+                timer.mark();
+            }
+        }
+        else
+        {
+            setImage(images[0]);
+        }
         
 
 
+    }
+    public void shoot()
+    {
+        Bullet bullet = new Bullet(rotation);
+        MyWorld world = (MyWorld) getWorld();
+        world.addObject(bullet, getX(), getY());  
     }
 }
