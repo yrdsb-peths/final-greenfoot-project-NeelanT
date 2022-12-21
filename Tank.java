@@ -11,15 +11,17 @@ public class Tank extends Actor
     int level = 1;
     int rotation = getRotation();
     String facing = "right";
-    GreenfootImage [] images = new GreenfootImage[8];
-    GreenfootImage [] imagesLeft = new GreenfootImage[8];
+    GreenfootImage [] images = new GreenfootImage[3];
+    
     
     public Tank()
     {
-        
-        GreenfootImage image = new GreenfootImage("images/tank1.png");
-        image.scale(100, 80);
-        setImage(image);
+        for(int i = 0; i < images.length; i++)
+        {
+            images[i] = new GreenfootImage("images/tank" + i + ".png");
+            images[i].scale(100, 80);
+        }
+        setImage(images[0]);
     }
     public void act() {
        
@@ -36,11 +38,18 @@ public class Tank extends Actor
         }
         if (Greenfoot.isKeyDown("w")) {
             move(3);
+            animate();
         }
         if (Greenfoot.isKeyDown("space"))
         {
            shoot();
         }
+    }
+    int i = 0;
+    public void animate()
+    {
+        setImage(images[(i  % 2) + 1]);
+        i++;
     }
     public void shoot()
     {
