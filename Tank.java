@@ -22,7 +22,7 @@
             shootTimer.mark();
         }
         public void act() {
-            if(isTouching(Wall.class))
+            if(isTouching(Wall1.class))
             {
                 if(getRotation() < 180)
                 {

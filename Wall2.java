@@ -6,13 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wall1 extends Actor
+public class Wall2 extends Actor
 {
-    public Wall1(int length)
+    public Wall2(int length)
     {
 
-            GreenfootImage image = getImage();
-            image.scale(length, 50);
+        GreenfootImage image = getImage();
+        image.scale(50, length);
 
     }
 

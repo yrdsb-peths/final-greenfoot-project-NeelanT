@@ -19,7 +19,7 @@ public class MyWorld extends World
         super(1200, 700, 1);
         Tank tank = new Tank();
         addObject(tank, getWidth()/2, getHeight()/2);
-        Wall wall = new Wall("horizontal", 500);
+        Wall1 wall = new Wall1(500);
         addObject(wall, 600, 150);
     }
 }
