@@ -34,6 +34,18 @@
                 }
                 
             }
+            if(isTouching(Wall2.class))
+            {
+                if(getRotation() < 180)
+                {
+                    setLocation(getX() - 5, getY());
+                }
+                else 
+                {
+                    setLocation(getX() - 5, getY());
+                }
+                
+            }
            
             if (Greenfoot.isKeyDown("a")) {
                 turn(-3);
