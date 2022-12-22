@@ -22,6 +22,18 @@
             shootTimer.mark();
         }
         public void act() {
+            if(isTouching(Wall.class))
+            {
+                if(getRotation() < 180)
+                {
+                    setLocation(getX(), getY() - 5);
+                }
+                else 
+                {
+                    setLocation(getX(), getY() + 5);
+                }
+                
+            }
            
             if (Greenfoot.isKeyDown("a")) {
                 turn(-3);
@@ -48,7 +60,7 @@
         int i = 0;
     public void animate()
     {
-        if(Greenfoot.isKeyDown("w")) {
+        if(Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s")) {
             if(timer.millisElapsed() >= 40)
             {
                 setImage(images[(i  % 2) + 1]);

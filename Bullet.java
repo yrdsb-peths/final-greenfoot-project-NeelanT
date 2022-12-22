@@ -19,9 +19,8 @@ public class Bullet extends Actor
     public void act() 
     {
         move(10);
-        
         MyWorld world = (MyWorld) getWorld();
-        if(getX() >= world.getWidth() - 1 || getX() <= 1)
+        if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall1.class))
         {
             setRotation(180 - getRotation());
              
