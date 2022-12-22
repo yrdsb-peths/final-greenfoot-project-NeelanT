@@ -20,13 +20,11 @@ public class Bullet extends Actor
     {
         move(10);
         MyWorld world = (MyWorld) getWorld();
-        if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall1.class))
+        if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall2.class))
         {
-            
             setRotation(180 - getRotation());
-             
         }
-        else if (getY() >= world.getHeight() - 1 || getY() <= 1)
+        else if (getY() >= world.getHeight() - 1 || getY() <= 1 || isTouching(Wall1.class))
         {
             setRotation(270 - (getRotation() - 90));
         }
