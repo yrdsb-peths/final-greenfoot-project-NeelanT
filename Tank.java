@@ -3,6 +3,7 @@
     public class Tank extends Actor
     {
         SimpleTimer timer = new SimpleTimer();
+        SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
         int rotation = getRotation();
         String facing = "right";
@@ -18,6 +19,7 @@
             }
             setImage(images[0]);
             timer.mark();
+            shootTimer.mark();
         }
         public void act() {
            
@@ -34,11 +36,12 @@
             }
             if (Greenfoot.isKeyDown("w")) {
                 move(5);
-                
+
             }
-            if (Greenfoot.isKeyDown("space"))
+            if (Greenfoot.isKeyDown("space") )
             {
                 shoot();
+                
             }
             animate();
         }
@@ -65,8 +68,9 @@
     {
         
         MyWorld world = (MyWorld) getWorld();
-        if(world.numberOfObjects() < 5)
+        if(world.numberOfObjects() < 5 && shootTimer.millisElapsed() > 750)
         {
+            shootTimer.mark();
             Bullet bullet = new Bullet(rotation);
             world.addObject(bullet, getX(), getY()); 
         }
