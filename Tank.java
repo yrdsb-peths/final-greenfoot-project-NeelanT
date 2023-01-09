@@ -32,18 +32,27 @@
                 {
                     setLocation(getX(), getY() + 5);
                 }
-                
+
             }
             if(isTouching(Wall2.class))
             {
-                if(getRotation() < 180)
+                if(getRotation() < 270 && getRotation() > 90) 
                 {
-                    setLocation(getX() - 5, getY());
+                    setLocation(getX() + 5, getY());
                 }
                 else 
                 {
                     setLocation(getX() - 5, getY());
                 }
+                
+            }
+            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
+            {
+                MyWorld world = (MyWorld) getWorld();
+                removeTouching(Bullet.class);
+                world.removeObject(this);
+                
+
                 
             }
            

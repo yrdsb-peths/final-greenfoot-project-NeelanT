@@ -14,12 +14,15 @@ public class Bullet extends Actor
         image.scale(30, 50);
         setImage(image);
         setRotation(rotation);
+        move(10);
     }
 
     public void act() 
     {
         move(10);
         MyWorld world = (MyWorld) getWorld();
+        
+    
         if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall2.class))
         {
             setRotation(180 - getRotation());
@@ -28,5 +31,6 @@ public class Bullet extends Actor
         {
             setRotation(270 - (getRotation() - 90));
         }
+        
     }    
 }
