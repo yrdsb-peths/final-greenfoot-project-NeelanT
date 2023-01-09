@@ -49,8 +49,8 @@
             if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
             {
                 MyWorld world = (MyWorld) getWorld();
-                removeTouching(Bullet.class);
-                world.removeObject(this);
+                //removeTouching(Bullet.class);
+                //world.removeObject(this);
                 
 
                 
