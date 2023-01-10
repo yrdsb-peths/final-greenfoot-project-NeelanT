@@ -24,25 +24,33 @@
         public void act() {
             if(isTouching(Wall1.class))
             {
-                if(getRotation() < 180)
+                Wall1 wall = (Wall1)getOneIntersectingObject(Wall1.class);
+                if(wall.getY() > this.getY() )
                 {
                     setLocation(getX(), getY() - 5);
                 }
-                else 
-                {
+                else {
                     setLocation(getX(), getY() + 5);
                 }
+
+                
+
+
+
+  
+  
+                
 
             }
             if(isTouching(Wall2.class))
             {
-                if(getRotation() < 270 && getRotation() > 90) 
+                Wall2 wall = (Wall2)getOneIntersectingObject(Wall2.class);
+                if(wall.getX() > this.getX() )
                 {
-                    setLocation(getX() + 5, getY());
+                    setLocation(getX() - 5, getY() );
                 }
-                else 
-                {
-                    setLocation(getX() - 5, getY());
+                else {
+                    setLocation(getX() + 5, getY() );
                 }
                 
             }
@@ -78,7 +86,7 @@
             }
             animate();
         }
-        int i = 0;
+    int i = 0;
     public void animate()
     {
         if(Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s")) {
