@@ -26,10 +26,12 @@ public class Bullet extends Actor
         if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall2.class))
         {
             setRotation(180 - getRotation());
+            move(2);
         }
         else if (getY() >= world.getHeight() - 1 || getY() <= 1 || isTouching(Wall1.class))
         {
             setRotation(270 - (getRotation() - 90));
+            move(2);
         }
         
     }    

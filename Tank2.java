@@ -1,6 +1,6 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
-    public class Tank extends Actor
+    public class Tank2 extends Actor
     {
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
@@ -10,7 +10,7 @@
         GreenfootImage [] images = new GreenfootImage[3];
         
         
-        public Tank()
+        public Tank2()
         {
             for(int i = 0; i < images.length; i++)
             {
