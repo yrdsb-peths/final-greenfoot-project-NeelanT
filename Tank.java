@@ -5,7 +5,7 @@
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
-        int rotation = getRotation();
+        
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
         
@@ -54,11 +54,11 @@
                 }
                 
             }
-            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
+            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 200)
             {
                 MyWorld world = (MyWorld) getWorld();
-                //removeTouching(Bullet.class);
-                //world.removeObject(this);
+                removeTouching(Bullet.class);
+                world.removeObject(this);
                 
 
                 
@@ -66,11 +66,11 @@
            
             if (Greenfoot.isKeyDown("a")) {
                 turn(-3);
-                rotation = getRotation();
+                
             }
             if (Greenfoot.isKeyDown("d")) {
                 turn(3);
-                rotation = getRotation();
+                
             }
             if (Greenfoot.isKeyDown("s")) {
                 move(-5);
@@ -112,7 +112,7 @@
         if(world.numberOfObjects() < 10 && shootTimer.millisElapsed() > 750)
         {
             shootTimer.mark();
-            Bullet bullet = new Bullet(rotation);
+            Bullet bullet = new Bullet(getRotation());
             world.addObject(bullet, getX(), getY()); 
         }
        

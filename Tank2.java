@@ -5,6 +5,7 @@
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
+        
         int rotation = getRotation();
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
@@ -14,10 +15,12 @@
         {
             for(int i = 0; i < images.length; i++)
             {
-                images[i] = new GreenfootImage("images/tank" + i + ".png");
+                images[i] = new GreenfootImage("images/redtank" + i + ".png");
                 images[i].scale(100, 80);
             }
             setImage(images[0]);
+            setRotation(180);
+
             timer.mark();
             shootTimer.mark();
         }
@@ -57,25 +60,25 @@
             if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
             {
                 MyWorld world = (MyWorld) getWorld();
-                //removeTouching(Bullet.class);
-                //world.removeObject(this);
+                removeTouching(Bullet.class);
+                world.removeObject(this);
                 
 
                 
             }
            
-            if (Greenfoot.isKeyDown("a")) {
+            if (Greenfoot.isKeyDown("left")) {
                 turn(-3);
                 rotation = getRotation();
             }
-            if (Greenfoot.isKeyDown("d")) {
+            if (Greenfoot.isKeyDown("right")) {
                 turn(3);
                 rotation = getRotation();
             }
-            if (Greenfoot.isKeyDown("s")) {
+            if (Greenfoot.isKeyDown("down")) {
                 move(-5);
             }
-            if (Greenfoot.isKeyDown("w")) {
+            if (Greenfoot.isKeyDown("up")) {
                 move(5);
 
             }
@@ -112,7 +115,7 @@
         if(world.numberOfObjects() < 10 && shootTimer.millisElapsed() > 750)
         {
             shootTimer.mark();
-            Bullet bullet = new Bullet(rotation);
+            Bullet bullet = new Bullet(getRotation());
             world.addObject(bullet, getX(), getY()); 
         }
        
