@@ -82,7 +82,7 @@
                 move(5);
 
             }
-            if (Greenfoot.isKeyDown("space") )
+            if (Greenfoot.isKeyDown("shift") )
             {
                 shoot();
                 
