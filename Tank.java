@@ -15,7 +15,7 @@
             for(int i = 0; i < images.length; i++)
             {
                 images[i] = new GreenfootImage("images/tank" + i + ".png");
-                images[i].scale(100, 80);
+                images[i].scale(80, 64);
             }
             setImage(images[0]);
             timer.mark();
@@ -82,7 +82,7 @@
     int i = 0;
     public void animate()
     {
-        if(Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s")) {
+        if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("s")) {
             if(timer.millisElapsed() >= 40)
             {
                 setImage(images[(i  % 2) + 1]);

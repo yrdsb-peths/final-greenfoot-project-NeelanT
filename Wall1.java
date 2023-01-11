@@ -12,7 +12,7 @@ public class Wall1 extends Actor
     {
 
             GreenfootImage image = getImage();
-            image.scale(length, 20);
+            image.scale(length, 10);
 
     }
 

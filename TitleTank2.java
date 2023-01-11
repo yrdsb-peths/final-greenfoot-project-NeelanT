@@ -1,6 +1,6 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
-    public class Tank2 extends Actor
+    public class TitleTank2 extends Actor
     {
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
@@ -11,12 +11,12 @@
         GreenfootImage [] images = new GreenfootImage[3];
         
         
-        public Tank2()
+        public TitleTank2()
         {
             for(int i = 0; i < images.length; i++)
             {
                 images[i] = new GreenfootImage("images/redtank" + i + ".png");
-                images[i].scale(80, 64);
+                images[i].scale(100, 80);
             }
             setImage(images[0]);
             setRotation(180);
@@ -82,17 +82,13 @@
                 move(5);
 
             }
-            if (Greenfoot.isKeyDown("shift") )
-            {
-                shoot();
-                
-            }
+
             animate();
         }
     int i = 0;
     public void animate()
     {
-        if(Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down")) {
+        if(Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s")) {
             if(timer.millisElapsed() >= 40)
             {
                 setImage(images[(i  % 2) + 1]);
@@ -108,20 +104,5 @@
 
 
     }
-    public void shoot()
-    {
-        if(shootTimer.millisElapsed() > 750)
-        {
-            MyWorld world = (MyWorld) getWorld();
-            if(world.numberOfObjects() < 10)
-            {
-                shootTimer.mark();
-                Bullet bullet = new Bullet(getRotation());
-                world.addObject(bullet, getX(), getY()); 
-            }
 
-        }
-       
-         
-    }
 }

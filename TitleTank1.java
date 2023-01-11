@@ -1,26 +1,23 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
-    public class Tank2 extends Actor
+    public class TitleTank1 extends Actor
     {
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
         
-        int rotation = getRotation();
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
         
         
-        public Tank2()
+        public TitleTank1()
         {
             for(int i = 0; i < images.length; i++)
             {
-                images[i] = new GreenfootImage("images/redtank" + i + ".png");
-                images[i].scale(80, 64);
+                images[i] = new GreenfootImage("images/tank" + i + ".png");
+                images[i].scale(100, 80);
             }
             setImage(images[0]);
-            setRotation(180);
-
             timer.mark();
             shootTimer.mark();
         }
@@ -37,27 +34,20 @@
                 }
 
                 
-
-
-
-  
-  
-                
-
             }
             if(isTouching(Wall2.class))
             {
                 Wall2 wall = (Wall2)getOneIntersectingObject(Wall2.class);
                 if(wall.getX() > this.getX() )
                 {
-                    setLocation(getX() - 5, getY() );
+                    setLocation(getX() - 4, getY() );
                 }
                 else {
-                    setLocation(getX() + 5, getY() );
+                    setLocation(getX() + 4, getY() );
                 }
                 
             }
-            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
+            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 200)
             {
                 MyWorld world = (MyWorld) getWorld();
                 removeTouching(Bullet.class);
@@ -67,32 +57,28 @@
                 
             }
            
-            if (Greenfoot.isKeyDown("left")) {
+            if (Greenfoot.isKeyDown("a")) {
                 turn(-3);
-                rotation = getRotation();
-            }
-            if (Greenfoot.isKeyDown("right")) {
-                turn(3);
-                rotation = getRotation();
-            }
-            if (Greenfoot.isKeyDown("down")) {
-                move(-5);
-            }
-            if (Greenfoot.isKeyDown("up")) {
-                move(5);
-
-            }
-            if (Greenfoot.isKeyDown("shift") )
-            {
-                shoot();
                 
             }
+            if (Greenfoot.isKeyDown("d")) {
+                turn(3);
+                
+            }
+            if (Greenfoot.isKeyDown("s")) {
+                move(-4);
+            }
+            if (Greenfoot.isKeyDown("w")) {
+                move(4);
+
+            }
+ 
             animate();
         }
     int i = 0;
     public void animate()
     {
-        if(Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down")) {
+        if(Greenfoot.isKeyDown("w") && Greenfoot.isKeyDown("s")) {
             if(timer.millisElapsed() >= 40)
             {
                 setImage(images[(i  % 2) + 1]);
@@ -108,20 +94,5 @@
 
 
     }
-    public void shoot()
-    {
-        if(shootTimer.millisElapsed() > 750)
-        {
-            MyWorld world = (MyWorld) getWorld();
-            if(world.numberOfObjects() < 10)
-            {
-                shootTimer.mark();
-                Bullet bullet = new Bullet(getRotation());
-                world.addObject(bullet, getX(), getY()); 
-            }
 
-        }
-       
-         
-    }
 }

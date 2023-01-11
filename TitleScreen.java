@@ -22,8 +22,7 @@ public class TitleScreen extends World
 
     public void act()
     {
-        if(Greenfoot.isKeyDown("space") && Greenfoot.isKeyDown("shift"))
-        {
+        if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("shift")) {
             MyWorld world = new MyWorld();
             Greenfoot.setWorld(world);
 
@@ -41,10 +40,9 @@ public class TitleScreen extends World
      */
     private void prepare()
     {
-        Tank2 tank2 = new Tank2();
-
+        TitleTank2 tank2 = new TitleTank2();
         addObject(tank2,1000,getHeight()/2);
-        Tank tank = new Tank();
+        TitleTank1 tank = new TitleTank1();
         addObject(tank,200, getHeight()/2);
 
 
