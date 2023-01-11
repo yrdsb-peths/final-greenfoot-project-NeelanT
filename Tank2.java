@@ -110,13 +110,16 @@
     }
     public void shoot()
     {
-        
-        MyWorld world = (MyWorld) getWorld();
-        if(world.numberOfObjects() < 10 && shootTimer.millisElapsed() > 750)
+        if(shootTimer.millisElapsed() > 750)
         {
-            shootTimer.mark();
-            Bullet bullet = new Bullet(getRotation());
-            world.addObject(bullet, getX(), getY()); 
+            MyWorld world = (MyWorld) getWorld();
+            if(world.numberOfObjects() < 10)
+            {
+                shootTimer.mark();
+                Bullet bullet = new Bullet(getRotation());
+                world.addObject(bullet, getX(), getY()); 
+            }
+
         }
        
          
