@@ -36,7 +36,7 @@ public class MyWorld extends World
         Wall1 wall7 = new Wall1(450);
         addObject(wall7, 577, 564);
         Wall2 wall8 = new Wall2(600);
-        addObject(wall8, 953, 461);
+        addObject(wall8, 727, 2);
     }
 
     public void map1()
