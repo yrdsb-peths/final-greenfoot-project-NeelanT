@@ -105,7 +105,7 @@
         if(shootTimer.millisElapsed() > 750)
         {
             MyWorld world = (MyWorld) getWorld();
-            if(world.numberOfObjects() < 10)
+            if(world.numberOfObjects() < 16)
             {
                 shootTimer.mark();
                 Bullet bullet = new Bullet(getRotation());
