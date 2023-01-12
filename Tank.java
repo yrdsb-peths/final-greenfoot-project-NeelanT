@@ -5,7 +5,7 @@
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
-        
+        int count = 0;
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
         
@@ -27,10 +27,10 @@
                 Wall1 wall = (Wall1)getOneIntersectingObject(Wall1.class);
                 if(wall.getY() > this.getY() )
                 {
-                    setLocation(getX(), getY() - 5);
+                    setLocation(getX(), getY() - 4);
                 }
                 else {
-                    setLocation(getX(), getY() + 5);
+                    setLocation(getX(), getY() + 4);
                 }
 
                 
@@ -52,6 +52,7 @@
                 MyWorld world = (MyWorld) getWorld();
                 removeTouching(Bullet.class);
                 world.removeObject(this);
+                count--;
                 
 
                 
@@ -100,12 +101,12 @@
     }
     public void shoot()
     {
-        
+        count++;
         
         if(shootTimer.millisElapsed() > 750)
         {
             MyWorld world = (MyWorld) getWorld();
-            if(world.numberOfObjects() < 16)
+            if(count < 5)
             {
                 shootTimer.mark();
                 Bullet bullet = new Bullet(getRotation());

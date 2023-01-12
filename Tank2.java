@@ -50,10 +50,10 @@
                 Wall2 wall = (Wall2)getOneIntersectingObject(Wall2.class);
                 if(wall.getX() > this.getX() )
                 {
-                    setLocation(getX() - 5, getY() );
+                    setLocation(getX() - 4, getY() );
                 }
                 else {
-                    setLocation(getX() + 5, getY() );
+                    setLocation(getX() + 4, getY() );
                 }
                 
             }
@@ -76,10 +76,10 @@
                 rotation = getRotation();
             }
             if (Greenfoot.isKeyDown("down")) {
-                move(-5);
+                move(-4);
             }
             if (Greenfoot.isKeyDown("up")) {
-                move(5);
+                move(4);
 
             }
             if (Greenfoot.isKeyDown("shift") )
