@@ -5,7 +5,7 @@
         SimpleTimer timer = new SimpleTimer();
         SimpleTimer shootTimer = new SimpleTimer();
         int level = 1;
-        
+        boolean scored = false;
         int rotation = getRotation();
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
@@ -25,6 +25,7 @@
             shootTimer.mark();
         }
         public void act() {
+  
             if(isTouching(Wall1.class))
             {
                 Wall1 wall = (Wall1)getOneIntersectingObject(Wall1.class);
@@ -35,14 +36,6 @@
                 else {
                     setLocation(getX(), getY() + 5);
                 }
-
-                
-
-
-
-  
-  
-                
 
             }
             if(isTouching(Wall2.class))
@@ -61,12 +54,16 @@
             {
                 MyWorld world = (MyWorld) getWorld();
                 removeTouching(Bullet.class);
+                world.scored = true;
+                world.increaseScore("blue");
+                world.decreaseCounter("blue");
+                world.decreaseCounter("red");
                 world.removeObject(this);
-                
+
 
                 
             }
-           
+
             if (Greenfoot.isKeyDown("left")) {
                 turn(-3);
                 rotation = getRotation();
@@ -110,13 +107,15 @@
     }
     public void shoot()
     {
-        if(shootTimer.millisElapsed() > 750)
+        if(shootTimer.millisElapsed() > 425)
         {
+            
             MyWorld world = (MyWorld) getWorld();
-            if(world.numberOfObjects() < 16)
+            world.increaseCounter("red");
+            if(world.counterRed < 5)
             {
                 shootTimer.mark();
-                Bullet bullet = new Bullet(getRotation());
+                Bullet bullet = new Bullet(getRotation(), "red");
                 world.addObject(bullet, getX(), getY()); 
             }
 

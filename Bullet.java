@@ -4,22 +4,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Bullet extends Actor
 
 {
-    
+    String type;
+    boolean scored;
     SimpleTimer bulletTimer = new SimpleTimer();
-    public Bullet(int rotation)
+    public Bullet(int rotation, String type)
     {
+        scored = false;
+        this.type = type;
         GreenfootImage image = new GreenfootImage("images/bullet.png");
-        image.scale(30, 50);
+        image.scale(25, 35);
         setImage(image);
         setRotation(rotation);
         bulletTimer.mark();
-        move(10);
+        move(9);
         
     }
 
     public void act() 
     {
-        move(10);
+        move(9);
         MyWorld world = (MyWorld) getWorld();
 
         if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall2.class))
@@ -32,8 +35,16 @@ public class Bullet extends Actor
             setRotation(270 - (getRotation() - 90));
             move(2);
         }
-        if(bulletTimer.millisElapsed() > 4000)
+        if(bulletTimer.millisElapsed() > 5000)
         {
+            if(type == "blue")
+            {
+                world.decreaseCounter("blue");
+                
+            }
+            else {
+                world.decreaseCounter("red");
+            }
             world.removeObject(this);
         }
         
