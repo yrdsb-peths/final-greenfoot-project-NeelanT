@@ -1,18 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Title here.
+ * The end screen of Tank Trouble 3.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Neelan 
+ * @version Jan 13, 2023
  */
 public class EndScreen extends World
 {
-
+  
     public EndScreen(String winner)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
+
+       
         Label title = new Label("Game Over! " + winner, 100);
         addObject(title, getWidth()/2, getHeight()/2); 
         Label space = new Label("Press space to replay", 45);

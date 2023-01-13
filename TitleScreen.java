@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Title here.
+ * The title screen of Tank Trouble 3.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Neelan 
+ * @version Jan 13th, 2023
  */
 public class TitleScreen extends World
 {
@@ -16,7 +16,10 @@ public class TitleScreen extends World
         Label title = new Label("Tank Trouble 3", 100);
         addObject(title, getWidth()/2, getHeight()/2); 
         Label space = new Label("Press space to start", 45);
+        
         addObject(space, getWidth()/2, 450); 
+        Label space = new Label("Player 1:", 45);
+        addObject(space, getWidth()/2, 525); 
         prepare();
     }
 

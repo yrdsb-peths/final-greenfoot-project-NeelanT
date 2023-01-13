@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * This is the MyWorld class where the actual game takes place with 2 tanks shooting at each other with bullets that bounce off walls.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Neelan  
+ * @version Jan 13th, 2023
  */
 public class MyWorld extends World
 {
@@ -47,6 +47,11 @@ public class MyWorld extends World
         Wall2 wall8 = new Wall2(600);
         addObject(wall8, 727, 2);
     }
+    /**
+     * Act method of MyWorld
+     * Checks if game is won and if a score is made
+     * 
+     */
     public void act(){
         if(scoreBlue == 10|| scoreRed == 10){
             if(scoreBlue == 10 && scoreRed < 10){
@@ -77,6 +82,10 @@ public class MyWorld extends World
     {
 
     }
+    /**
+     * This method increases the respective score when a bullet hits a tank.
+     * 
+     */
     public void increaseScore(String color){
         if(color == "blue"){
             scoreBlue++;
@@ -86,11 +95,13 @@ public class MyWorld extends World
             scoreRed++;
         }
         score.setValue(scoreBlue + " - " + scoreRed);
-        if(counterBlue > 0 || counterRed > 0){
-            
-        }
+
         
     }
+    /**
+     * This method increases the counterBlue and counterRed variables that manage the amount of bullets each tank can shoot.
+     * 
+     */
     public void increaseCounter(String color){
         if(color == "blue")
         {
@@ -100,8 +111,12 @@ public class MyWorld extends World
         else{
             counterRed++;
         }
-        System.out.println(counterBlue);
+        
     }
+    /**
+     * This method decreases the counterBlue and counterRed variables that manage the amount of bullets each tank can shoot.
+     * 
+     */
     public void decreaseCounter(String color){
         if(color == "blue")
         {
@@ -113,6 +128,10 @@ public class MyWorld extends World
         }
         
     }
+    /**
+     * When a score is made, this method resets the positions of each tank to start again.
+     * 
+     */
     public void reset()
     {
         removeObjects(getObjects(Bullet.class));
