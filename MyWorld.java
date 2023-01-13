@@ -48,7 +48,22 @@ public class MyWorld extends World
         addObject(wall8, 727, 2);
     }
     public void act(){
-        System.out.println(numberOfObjects());
+        if(scoreBlue == 10|| scoreRed == 10){
+            if(scoreBlue == 10 && scoreRed < 10){
+                EndScreen end = new EndScreen("Blue wins!");
+                Greenfoot.setWorld(end);
+            }
+            else if (scoreRed == 10 && scoreBlue < 10){
+                EndScreen end = new EndScreen("Red wins!");
+                Greenfoot.setWorld(end);
+            }
+            else{
+                EndScreen end = new EndScreen("It's a draw!");
+                
+            }
+            scoreBlue = 0;
+            scoreRed = 0;
+        }
         
         if(scored && numberOfObjects() < 11){
             reset();
@@ -102,7 +117,7 @@ public class MyWorld extends World
     {
         removeObjects(getObjects(Bullet.class));
         removeObject(tank1);
-        removeObject(tank1);
+        removeObject(tank2);
         addObject(tank1, 0, getHeight()/2);
         addObject(tank2, getWidth(), getHeight()/2);
     }
