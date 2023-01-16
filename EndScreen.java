@@ -11,16 +11,43 @@ public class EndScreen extends World
     /**
      * Constructor 
      */
-    public EndScreen(String winner)
+    int blueWinstreak = 0;
+    int redWinstreak = 0;
+    int longestRedStreak = 0;
+    int longestBlueStreak = 0;
+    public EndScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
-
+        
+        if(winner == "blue"){
+            
+            blueWinstreak++;
+            if(blueWinstreak > longestBlueStreak){
+                longestBlueStreak = blueWinstreak;
+            }
+            
+            longestRedStreak = redWinstreak;
+            redWinstreak = 0;
+        }
+        else{
+            redWinstreak++;
+            if(redWinstreak > longestRedStreak){
+                longestRedStreak = redWinstreak;
+            }
+            
+            longestBlueStreak = blueWinstreak;
+            blueWinstreak = 0;
+        }
        
         Label title = new Label("Game Over! " + winner, 100);
         addObject(title, getWidth()/2, getHeight()/2); 
         Label space = new Label("Press space to replay", 45);
         addObject(space, getWidth()/2, 450); 
+        Label blue = new Label("Longest blue winstreak:" + longestBlueStreak, 30);
+        addObject(blue, getWidth()/2 - 100, 525); 
+        Label red = new Label("Longest red winstreak:" + longestRedStreak, 30);
+        addObject(red, getWidth()/2 + 100, 525); 
        
     }
 

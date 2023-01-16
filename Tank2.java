@@ -50,7 +50,7 @@
                 }
                 
             }
-            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 150)
+            if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 200)
             {
                 MyWorld world = (MyWorld) getWorld();
                 removeTouching(Bullet.class);

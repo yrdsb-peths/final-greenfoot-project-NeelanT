@@ -12,15 +12,18 @@ public class MyWorld extends World
     int counterRed = 0;
     int scoreBlue = 0;
     int scoreRed = 0;
+    String state = "";
     boolean scored = false;
     Tank tank1;
     Tank2 tank2;
     Label score;
+    EndScreen end = new EndScreen();
     /**
      * Constructor for objects of class MyWorld.
      */
     public MyWorld()
-    {    
+    {
+        
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         score = new Label(scoreBlue + " - " + scoreRed, 50);
@@ -67,15 +70,15 @@ public class MyWorld extends World
     public void act(){
         if(scoreBlue == 10|| scoreRed == 10){
             if(scoreBlue == 10 && scoreRed < 10){
-                EndScreen end = new EndScreen("Blue wins!");
+                state = "Blue wins!"
                 Greenfoot.setWorld(end);
             }
             else if (scoreRed == 10 && scoreBlue < 10){
-                EndScreen end = new EndScreen("Red wins!");
+                state = "Red wins!"
                 Greenfoot.setWorld(end);
             }
             else{
-                EndScreen end = new EndScreen("It's a draw!");
+                state = "It's a draw!";
                 Greenfoot.setWorld(end);
             }
             scoreBlue = 0;

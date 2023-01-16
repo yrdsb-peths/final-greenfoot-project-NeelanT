@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -15,15 +16,20 @@ public class TitleScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
+        
         Label title = new Label("Tank Trouble 3", 100);
         addObject(title, getWidth()/2, getHeight()/2); 
         Label space = new Label("Press space to start", 45);
         
         addObject(space, getWidth()/2, 450); 
         Label controls1 = new Label("Player 1: ", 45);
-        addObject(controls1, 800, 525); 
+        addObject(controls1, 400, 525); 
+        Arrows arrows = new Arrows();
+        addObject(arrows, 388, 635);
         Label controls2 = new Label("Player 2: ", 45);
-        addObject(controls2, 400, 525); 
+        Wasd wasd = new Wasd();
+        addObject(wasd, 788, 635);
+        addObject(controls2, 800, 525); 
         prepare();
     }
 
@@ -46,7 +52,6 @@ public class TitleScreen extends World
         addObject(tank2,1000,getHeight()/2);
         TitleTank1 tank = new TitleTank1();
         addObject(tank,200, getHeight()/2);
-
 
     }
 }
