@@ -9,7 +9,7 @@
         int rotation = getRotation();
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
-        
+        GreenfootSound gunshot = new GreenfootSound("sounds/gunshot2.wav"); 
         
         public Tank2()
         {
@@ -113,7 +113,8 @@
             MyWorld world = (MyWorld) getWorld();
             world.increaseCounter("red");
             if(world.counterRed < 5)
-            {
+            {   
+                gunshot.play();
                 shootTimer.mark();
                 Bullet bullet = new Bullet(getRotation(), "red");
                 world.addObject(bullet, getX(), getY()); 

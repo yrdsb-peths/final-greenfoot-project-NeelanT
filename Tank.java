@@ -9,7 +9,7 @@
         boolean scored = false;
         String facing = "right";
         GreenfootImage [] images = new GreenfootImage[3];
-        
+        GreenfootSound gunshot = new GreenfootSound("sounds/gunshot1.wav"); 
         
         public Tank()
         {
@@ -122,6 +122,7 @@
             
             if(world.counterBlue < 5)
             {
+                gunshot.play();
                 world.increaseCounter("blue");
                 shootTimer.mark();
                 Bullet bullet = new Bullet(getRotation(), "blue");

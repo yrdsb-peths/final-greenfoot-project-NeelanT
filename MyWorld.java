@@ -18,7 +18,6 @@ public class MyWorld extends World
     Label score;
     /**
      * Constructor for objects of class MyWorld.
-     * 
      */
     public MyWorld()
     {    
@@ -38,19 +37,32 @@ public class MyWorld extends World
         addObject(wall2, 500, 150);
         Wall1 wall4 = new Wall1(19);
         addObject(wall4, 500, 398);
-        Wall2 wall5 = new Wall2(500);
-        addObject(wall5, 207, 524);
-        Wall2 wall6 = new Wall2(600);
-        addObject(wall6, 953, 461);
-        Wall1 wall7 = new Wall1(450);
-        addObject(wall7, 577, 564);
-        Wall2 wall8 = new Wall2(600);
-        addObject(wall8, 727, 2);
+        Wall2 wall5 = new Wall2(310);
+        addObject(wall5, 207, 440);
+        Wall1 wall6 = new Wall1(19);
+        addObject(wall6, 207, 285);
+        Wall1 wall10 = new Wall1(19);
+        addObject(wall10, 207, 595);
+        Wall2 wall7 = new Wall2(360);
+        addObject(wall7, 980, 325);
+        Wall1 wall8 = new Wall1(450);
+        addObject(wall8, 600, 564);
+        Wall2 wall11 = new Wall2(13);
+        addObject(wall11, 375, 564);
+        Wall2 wall12 = new Wall2(13);
+        addObject(wall12, 825, 564);
+        Wall2 wall9 = new Wall2(600);
+        addObject(wall9, 727, 2);
+        Wall1 wall13 = new Wall1(19);
+        addObject(wall13, 727, 300);
+        Wall1 wall14 = new Wall1(19);
+        addObject(wall14, 980, 149);
+        Wall1 wall15 = new Wall1(19);
+        addObject(wall15, 980, 501);
     }
     /**
      * Act method of MyWorld
-     * Checks if game is won and if a score is made
-     * 
+     * Checks if game is won and if a score is made 
      */
     public void act(){
         if(scoreBlue == 10|| scoreRed == 10){
@@ -64,13 +76,13 @@ public class MyWorld extends World
             }
             else{
                 EndScreen end = new EndScreen("It's a draw!");
-                
+                Greenfoot.setWorld(end);
             }
             scoreBlue = 0;
             scoreRed = 0;
         }
         
-        if(scored && numberOfObjects() < 11){
+        if(scored && numberOfObjects() < 18){
             reset();
             scored = false;
             counterBlue = 0;
@@ -84,7 +96,6 @@ public class MyWorld extends World
     }
     /**
      * This method increases the respective score when a bullet hits a tank.
-     * 
      */
     public void increaseScore(String color){
         if(color == "blue"){
@@ -95,7 +106,7 @@ public class MyWorld extends World
             scoreRed++;
         }
         score.setValue(scoreBlue + " - " + scoreRed);
-
+        
         
     }
     /**
@@ -115,7 +126,6 @@ public class MyWorld extends World
     }
     /**
      * This method decreases the counterBlue and counterRed variables that manage the amount of bullets each tank can shoot.
-     * 
      */
     public void decreaseCounter(String color){
         if(color == "blue")
@@ -130,7 +140,6 @@ public class MyWorld extends World
     }
     /**
      * When a score is made, this method resets the positions of each tank to start again.
-     * 
      */
     public void reset()
     {
