@@ -18,6 +18,7 @@ public class MyWorld extends World
     Tank2 tank2;
     Label score;
     EndScreen end = new EndScreen();
+    
     /**
      * Constructor for objects of class MyWorld.
      */
@@ -70,19 +71,41 @@ public class MyWorld extends World
     public void act(){
         if(scoreBlue == 10|| scoreRed == 10){
             if(scoreBlue == 10 && scoreRed < 10){
-                state = "Blue wins!"
+                
+                end.state = "Blue wins!";
+                end.blueWinstreak++;
+                if(end.blueWinstreak > end.longestBlueStreak){
+                    end.longestBlueStreak = end.blueWinstreak;
+                }
+                
+                
+                end.redWinstreak = 0;
+                end.world(this);
                 Greenfoot.setWorld(end);
+            
+
             }
             else if (scoreRed == 10 && scoreBlue < 10){
-                state = "Red wins!"
+                
+                end.state = "Red wins!";
+                end.redWinstreak++;
+                if(end.redWinstreak > end.longestRedStreak){
+                    end.longestRedStreak = end.redWinstreak;
+                }
+                
+                
+                end.blueWinstreak = 0;
+                end.world(this);
                 Greenfoot.setWorld(end);
             }
             else{
-                state = "It's a draw!";
+                end.state = "It's a draw!";
+                end.world(this);
                 Greenfoot.setWorld(end);
             }
             scoreBlue = 0;
             scoreRed = 0;
+            score.setValue("0 - 0");
         }
         
         if(scored && numberOfObjects() < 18){
@@ -90,6 +113,7 @@ public class MyWorld extends World
             scored = false;
             counterBlue = 0;
             counterRed = 0;
+
         }
         
     }

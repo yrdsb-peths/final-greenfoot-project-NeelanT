@@ -11,60 +11,49 @@ public class EndScreen extends World
     /**
      * Constructor 
      */
+    String state = "";
+    MyWorld world;
     int blueWinstreak = 0;
     int redWinstreak = 0;
     int longestRedStreak = 0;
     int longestBlueStreak = 0;
+    Label blue;
+    Label red;
+    Label title;
     public EndScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         
-        if(winner == "blue"){
-            
-            blueWinstreak++;
-            if(blueWinstreak > longestBlueStreak){
-                longestBlueStreak = blueWinstreak;
-            }
-            
-            longestRedStreak = redWinstreak;
-            redWinstreak = 0;
-        }
-        else{
-            redWinstreak++;
-            if(redWinstreak > longestRedStreak){
-                longestRedStreak = redWinstreak;
-            }
-            
-            longestBlueStreak = blueWinstreak;
-            blueWinstreak = 0;
-        }
+        
        
-        Label title = new Label("Game Over! " + winner, 100);
+        title = new Label("Game Over!", 100);
         addObject(title, getWidth()/2, getHeight()/2); 
-        Label space = new Label("Press space to replay", 45);
+        Label space = new Label("Press enter to replay", 45);
         addObject(space, getWidth()/2, 450); 
-        Label blue = new Label("Longest blue winstreak:" + longestBlueStreak, 30);
-        addObject(blue, getWidth()/2 - 100, 525); 
-        Label red = new Label("Longest red winstreak:" + longestRedStreak, 30);
-        addObject(red, getWidth()/2 + 100, 525); 
+        blue = new Label("Longest blue winstreak:" + longestBlueStreak, 30);
+        addObject(blue, getWidth()/2 - 150, 525); 
+        red = new Label("Longest red winstreak:" + longestRedStreak, 30);
+        addObject(red, getWidth()/2 + 150, 525); 
        
     }
 
     public void act()
     {
-        if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("shift")) {
-            MyWorld world = new MyWorld();
+ 
+        System.out.println(redWinstreak);
+        if(Greenfoot.isKeyDown("enter")) {
             Greenfoot.setWorld(world);
 
         }
+        title.setValue("Game Over!" + state);
+        blue.setValue("Longest blue winstreak:" + longestBlueStreak);
+        red.setValue("Longest red winstreak:" + longestRedStreak);
     }
 
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
-
+    public void world(MyWorld tankworld){
+        world = tankworld;
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
