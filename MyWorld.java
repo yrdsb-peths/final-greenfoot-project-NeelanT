@@ -17,6 +17,7 @@ public class MyWorld extends World
     Tank tank1;
     Tank2 tank2;
     Label score;
+    
     EndScreen end = new EndScreen();
     
     /**

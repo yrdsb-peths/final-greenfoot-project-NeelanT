@@ -22,17 +22,23 @@ public class TitleScreen extends World
         Label space = new Label("Press space to start", 45);
         
         addObject(space, getWidth()/2, 450); 
+        Label space2 = new Label("Space to shoot", 40);
+        Label space3 = new Label("Shift to shoot", 40);
+        addObject(space2, getWidth()/2, 450); 
         Label controls1 = new Label("Player 1: ", 45);
         addObject(controls1, 400, 525); 
         Arrows arrows = new Arrows();
-        addObject(arrows, 388, 635);
+        addObject(arrows, 788, 635);
         Label controls2 = new Label("Player 2: ", 45);
         Wasd wasd = new Wasd();
-        addObject(wasd, 788, 635);
+        addObject(wasd, 388, 635);
+        
         addObject(controls2, 800, 525); 
         prepare();
     }
-
+    /**
+     * Act method for TitleScreen that checks when main game should be started.
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("shift")) {

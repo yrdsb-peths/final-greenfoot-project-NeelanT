@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EndScreen extends World
 {
-    /**
-     * Constructor 
-     */
+
     String state = "";
     MyWorld world;
     int blueWinstreak = 0;
@@ -20,6 +18,9 @@ public class EndScreen extends World
     Label blue;
     Label red;
     Label title;
+    /**
+     * Constructor for End Screen of game.
+     */
     public EndScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -37,7 +38,9 @@ public class EndScreen extends World
         addObject(red, getWidth()/2 + 150, 525); 
        
     }
-
+    /**
+     * This act method updates label with the longest winstreak of each color.
+     */
     public void act()
     {
  
@@ -46,11 +49,13 @@ public class EndScreen extends World
             Greenfoot.setWorld(world);
 
         }
-        title.setValue("Game Over!" + state);
+        title.setValue("Game Over! " + state);
         blue.setValue("Longest blue winstreak:" + longestBlueStreak);
         red.setValue("Longest red winstreak:" + longestRedStreak);
     }
-
+    /**
+     * This method gets the game world and sets the world variable as it.
+     */
     public void world(MyWorld tankworld){
         world = tankworld;
     }

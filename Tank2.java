@@ -90,7 +90,7 @@
     public void animate()
     {
         if(Greenfoot.isKeyDown("up") || Greenfoot.isKeyDown("down")) {
-            if(timer.millisElapsed() >= 40)
+            if(timer.millisElapsed() >= 70)
             {
                 setImage(images[(i  % 2) + 1]);
                 i++;
@@ -112,7 +112,7 @@
             
             MyWorld world = (MyWorld) getWorld();
             world.increaseCounter("red");
-            if(world.counterRed < 5)
+            if(world.counterRed < 5 && !world.scored)
             {   
                 gunshot.play();
                 shootTimer.mark();

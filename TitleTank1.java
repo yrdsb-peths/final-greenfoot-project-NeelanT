@@ -1,5 +1,7 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-    
+    /**
+     * A Blue Tank class that cannot move and is used in the title screen world.
+     */
     public class TitleTank1 extends Actor
     {
         SimpleTimer timer = new SimpleTimer();

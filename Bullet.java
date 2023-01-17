@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+/**
+ * This is the Bullet class that manages the trajectory of the bullet.
+ */
 
 public class Bullet extends Actor
 
@@ -7,6 +9,9 @@ public class Bullet extends Actor
     String type;
     boolean scored;
     SimpleTimer bulletTimer = new SimpleTimer();
+    /**
+    * Constructor for Bullet class.
+    */
     public Bullet(int rotation, String type)
     {
         scored = false;
@@ -19,7 +24,12 @@ public class Bullet extends Actor
         move(9);
         
     }
-
+    /**
+    * This is the act method for the bullet that controls the speed of the bullet.
+    * It also controls how the bullet interacts with walls.
+    * When the bullet touches a horizontal or vertical wall, the rotation is set to reflect the bullet off the wall.
+    * The method also controls the lifetime of the bullet.
+    */
     public void act() 
     {
         move(9);
@@ -35,7 +45,7 @@ public class Bullet extends Actor
             setRotation(270 - (getRotation() - 90));
             move(2);
         }
-        if(bulletTimer.millisElapsed() > 5000)
+        if(bulletTimer.millisElapsed() > 3500)
         {
             if(type == "blue")
             {

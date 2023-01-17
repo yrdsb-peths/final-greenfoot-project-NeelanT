@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Arrows here.
+ * The Arrow class that has the arrows image.
  * 
  * @author (your name) 
  * @version (a version number or a date)
