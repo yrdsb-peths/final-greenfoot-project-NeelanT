@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 * This is the Tank class where the functions such as shooting and moving are defined.
 * 
 * @author Neelan  
-* @version Jan 13th, 2023
+* @version Jan 18th, 2023
 */
 public class Tank extends Actor
 {
@@ -16,7 +16,7 @@ public class Tank extends Actor
     GreenfootImage [] images = new GreenfootImage[3];
     GreenfootSound gunshot = new GreenfootSound("sounds/gunshot1.wav"); 
     /**
-     * This is the constructor for the Tank 
+     * This is the constructor for the Tank, loads the animation images and starts timers
      */
     public Tank()
     {

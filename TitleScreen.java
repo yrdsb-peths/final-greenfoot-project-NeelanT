@@ -24,7 +24,8 @@ public class TitleScreen extends World
         addObject(space, getWidth()/2, 450); 
         Label space2 = new Label("Space to shoot", 40);
         Label space3 = new Label("Shift to shoot", 40);
-        addObject(space2, getWidth()/2, 450); 
+        addObject(space2, getWidth()/2 - 400, 575); 
+        addObject(space3, getWidth()/2 + 400, 575); 
         Label controls1 = new Label("Player 1: ", 45);
         addObject(controls1, 400, 525); 
         Arrows arrows = new Arrows();

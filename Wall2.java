@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Wall here.
+ * The horizontal wall class which is an object that tanks cannot go through.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Neelan 
+ * @version Jan 18th, 2023
  */
 public class Wall2 extends Actor
 {

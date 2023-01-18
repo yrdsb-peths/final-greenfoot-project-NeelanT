@@ -1,6 +1,8 @@
     import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     /**
-     * A Blue Tank class that cannot move and is used in the title screen world.
+     * A Red Tank class that cannot move and is used in the title screen world.
+     * @author Neelan
+     * @version Jan 18th, 2023
      */
     public class TitleTank2 extends Actor
     {

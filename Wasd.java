@@ -1,11 +1,11 @@
-    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-    
-    /**
-    * Write a description of class Wasd here.
-    * 
-    * @author (your name) 
-    * @version (a version number or a date)
-    */
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+* The Wasd class which is an image of Wasd keys.
+* 
+* @author Neelan 
+* @version Jan 18th, 2023
+*/
 public class Wasd extends Actor
 {
     
@@ -15,10 +15,7 @@ public class Wasd extends Actor
         setImage(image2);
         
     }
-    /**
-     * Act - do whatever the Wasd wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+   
     public void act() 
     {
         // Add your action code here.

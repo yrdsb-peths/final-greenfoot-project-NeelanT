@@ -43,8 +43,6 @@ public class EndScreen extends World
      */
     public void act()
     {
- 
-        System.out.println(redWinstreak);
         if(Greenfoot.isKeyDown("enter")) {
             Greenfoot.setWorld(world);
 

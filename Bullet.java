@@ -1,6 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * This is the Bullet class that manages the trajectory of the bullet.
+ * 
+ * @author Neelan
+ * @version Jan 18th, 2023
  */
 
 public class Bullet extends Actor
