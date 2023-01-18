@@ -38,6 +38,7 @@ public class Tank extends Actor
             if(world.counterBlue == 0 && world.counterRed == 0)
                 world.reset();
         }
+        // If the tank is touching a vertical wall, makes the tank move back
         if(isTouching(Wall1.class))
         {
             Wall1 wall = (Wall1)getOneIntersectingObject(Wall1.class);
@@ -51,6 +52,7 @@ public class Tank extends Actor
 
             
         }
+        // If the tank is touching a horizontal wall, makes the tank move back
         if(isTouching(Wall2.class))
         {
             Wall2 wall = (Wall2)getOneIntersectingObject(Wall2.class);
@@ -63,6 +65,7 @@ public class Tank extends Actor
             }
             
         }
+        
         if(isTouching(Bullet.class) && shootTimer.millisElapsed() > 200)
         {
             MyWorld world = (MyWorld) getWorld();
