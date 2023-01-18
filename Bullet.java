@@ -37,7 +37,8 @@ public class Bullet extends Actor
     {
         move(9);
         MyWorld world = (MyWorld) getWorld();
-
+        // When the bullet hits the boundaries of the world or a wall, 
+        // the rotation is changed to reflect off depending on if the wall is horizontal or vertical 
         if(getX() >= world.getWidth() - 1 || getX() <= 1 || isTouching(Wall2.class))
         {
             setRotation(180 - getRotation());
@@ -48,6 +49,7 @@ public class Bullet extends Actor
             setRotation(270 - (getRotation() - 90));
             move(2);
         }
+        // Lifetime of the bullet before it despawns
         if(bulletTimer.millisElapsed() > 3500)
         {
             if(type == "blue")
