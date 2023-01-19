@@ -26,8 +26,6 @@ public class EndScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         
-        
-       
         title = new Label("Game Over!", 100);
         addObject(title, getWidth()/2, getHeight()/2); 
         Label space = new Label("Press enter to replay", 45);
@@ -45,7 +43,6 @@ public class EndScreen extends World
     {
         if(Greenfoot.isKeyDown("enter")) {
             Greenfoot.setWorld(world);
-
         }
         title.setValue("Game Over! " + state);
         blue.setValue("Longest blue winstreak:" + longestBlueStreak);
@@ -67,7 +64,5 @@ public class EndScreen extends World
         addObject(tank2,1000,getHeight()/2);
         TitleTank1 tank = new TitleTank1();
         addObject(tank,200, getHeight()/2);
-
-
     }
 }

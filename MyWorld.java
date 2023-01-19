@@ -25,7 +25,6 @@ public class MyWorld extends World
      */
     public MyWorld()
     {
-        
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1200, 700, 1);
         score = new Label(scoreBlue + " - " + scoreRed, 50);
@@ -79,21 +78,16 @@ public class MyWorld extends World
                     end.longestBlueStreak = end.blueWinstreak;
                 }
                 
-                
                 end.redWinstreak = 0;
                 end.world(this);
                 Greenfoot.setWorld(end);
-            
-
             }
             else if (scoreRed == 10 && scoreBlue < 10){
-                
                 end.state = "Red wins!";
                 end.redWinstreak++;
                 if(end.redWinstreak > end.longestRedStreak){
                     end.longestRedStreak = end.redWinstreak;
                 }
-                
                 
                 end.blueWinstreak = 0;
                 end.world(this);
@@ -118,10 +112,6 @@ public class MyWorld extends World
         }
         
     }
-    public void map1()
-    {
-
-    }
     /**
      * This method increases the respective score when a bullet hits a tank.
      */
@@ -136,7 +126,7 @@ public class MyWorld extends World
         score.setValue(scoreBlue + " - " + scoreRed);
         
         
-    }
+        }
     /**
      * This method increases the counterBlue and counterRed variables that manage the amount of bullets each tank can shoot.
      * 
