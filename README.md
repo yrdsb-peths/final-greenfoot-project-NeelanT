@@ -8,3 +8,11 @@ There are 2 players in the game, the blue tank and the red tank, using W A S D a
 #### Getting Started
 To get started, press space at the title screen and use the controls mentioned previously to play, first to 10 points wins the round.
 
+#### Work Cited
+
+https://opengameart.org/content/2d-tanks-top-down
+
+https://pixabay.com/sound-effects/search/bullet/
+
+
+
